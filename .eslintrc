@@ -34,7 +34,6 @@
     "no-nested-ternary": 2,
     "one-var": [2, "never"],
     "operator-assignment": [2, "always"],
-    "quotes": [2, "double", "avoid-escape"],
     "semi": [2, "always"],
     "spaced-comment": [1, "always"],
     "keyword-spacing": 2,

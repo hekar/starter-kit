@@ -1,8 +1,7 @@
 "use strict";
 
-const config = require("./config.json");
+const config = require("./config");
 
-const app = require("./index.js").app;
 const passport = require("./index.js").passport;
 const Router = require("koa-router");
 
@@ -11,16 +10,15 @@ const routes = new Router();
 const main = require("./controllers/main.js");
 const account = require("./controllers/account.js");
 
-// routes
 
 routes.get("/", main.index);
 
-// for passport
+// Authentication routes
 routes.get("/login", account.login);
 routes.get("/logout", account.logout);
 routes.get("/account", account.index);
 
-// you can add as many strategies as you want
+// Github OAuth2
 routes.get("/auth/github",
 	passport.authenticate("github")
 );
@@ -32,4 +30,4 @@ routes.get("/auth/github/callback",
 	})
 );
 
-app.use(routes.middleware());
+module.exports = routes.middleware();

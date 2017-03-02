@@ -1,7 +1,7 @@
 "use strict";
 
 const hbs = require("koa-hbs");
-const config = require("../config.json");
+const config = require("../config");
 
 hbs.registerHelper("if_eq", function if_eq(a, b, opts) {
 	if (a == b) {
